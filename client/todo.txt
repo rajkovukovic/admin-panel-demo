@@ -1,0 +1,6 @@
+redux immutable state
+sorting and fitlering server list
+responsive layout
+keep sessionStorage on page refresh
+save google map state on MapView unmount
+not found route should be implemented

@@ -1,0 +1,158 @@
+
+
+.ServerList {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ServerListNode {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  padding: 30px;
+  min-width: 300px;
+  max-width: 300px;
+  cursor: pointer;
+  &:hover {
+    background: rgba(0,0,0,0.05);
+  }
+}
+
+.ServerListNode:hover .ServerListNodePieChart,
+.ServerMapMarker--active, .ServerListNodePieChart {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.ServerListNodePieChart {
+  position: relative;
+  margin: auto;
+  border-radius: 1000px;
+  overflow: hidden;
+  font-size: 0.9em;
+  transition: transform $default-transition;  
+}
+
+.ServerListNodePieChart--map--active {
+  box-shadow: 0 0 30px 10px rgb(24, 166, 255);
+  z-index: 2;
+}
+
+.ServerMapMarker--active:hover .ServerListNodePieChart--map--active {
+  box-shadow: none;
+}
+
+.ServerListNodePieChartText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 1.7em;
+  text-align: center;
+}
+
+.ServerListNodePieChartText-Big {
+  font-weight: 300;
+  font-size: 1.4em;
+}
+
+.ServerListNodeInfo {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 20px;
+}
+
+.ServerListNodeInfo_Title {
+  display: inline-block;
+  width: 52px;
+  font-weight: 300;
+  color: silver;
+}
+
+
+
+.ServerNodePage {
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  padding: 30px;
+  text-align: center;
+  .ServerListNodePieChart {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .ListItems {
+    margin-top: 36px;
+  }
+  .ServerListNodeInfoRow {
+    margin: auto;
+    padding: 8px 0;
+  }
+  .ServerListNodeInfoRow--hoverable {
+    transition: transform $default-transition;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .ServerListNodeInfo_Title {
+    display: inline-block;
+    width: 220px;
+    padding-right: 20px;
+    text-align: right;
+  }
+  .ServerListNodeInfo_Content {
+    display: inline-block;
+    width: 240px;
+    text-align: left;
+  }
+}
+
+.ServerMapMarker {
+  position: relative;
+  &:hover {
+    z-index: 3;
+  }
+  .ServerListNodeInfo {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 36px;
+    width: 200px;
+    left: -125px;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    background: rgba(0,0,0,0.8);
+    transform-origin: 50% 0;
+    transform: translateY(-50px) scale(0.1);
+    opacity: 0;
+    transition: all $default-transition;
+  }
+}
+
+.ServerMapMarker:hover {
+  .ServerListNodeInfo {
+    opacity: 1;
+    transform: none;
+    z-index: 2;
+  }
+}
+
+.MainContent > div > div > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(3) > div:before {
+  content: "";
+  position: absolute;
+  top: -500vh;
+  bottom: -500vh;
+  left: -500vw;
+  right: -500vw;
+  background-color: rgba(0,0,0,0.3);
+}
